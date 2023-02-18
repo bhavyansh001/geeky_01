@@ -8,5 +8,5 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  get '/practice', to: 'practice#index'
+  get '/practice', to: 'practice_area#index'
 end
