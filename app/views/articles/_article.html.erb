@@ -1,0 +1,7 @@
+<div class="card">
+  <div class="card-body" id= "short-card">
+    <h2><%= article.title %></h2>
+    <p><%= article.body %></p>
+  </div>
+    <%= link_to "Read further on '#{article.title}'", article_path(article), class: "btn btn-primary" %>
+</div><br>

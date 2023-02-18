@@ -1,0 +1,13 @@
+<%= form_with model: article do |form| %>
+  <div>
+    <% form.label :title %><br>
+    <%= form.text_field :title, placeholder: "Title of your acticle" %>
+  </div><br>
+  <div>
+    <%= form.rich_text_area :body, placeholder: "Content goes here" %>
+  </div><br>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
