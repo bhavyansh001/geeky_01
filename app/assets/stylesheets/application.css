@@ -26,3 +26,7 @@
     color: white;
     text-decoration: none;
 }
+#short-card {
+    max-height: 28vh;
+    overflow-y: hidden;
+}
