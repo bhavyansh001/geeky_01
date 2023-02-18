@@ -1,0 +1,11 @@
+<%= form_with model: [@article, @article.comments.build ] do |form| %>
+  <div>
+    <%= form.text_field :name, value: current_user.username, type: :hidden %>
+  </div><br>
+  <div>
+    <%= form.rich_text_area :body, placeholder: "Type your comment" %>
+  </div><br>
+  <div>
+    <%= form.submit %>
+  </div><br>
+<% end %>
