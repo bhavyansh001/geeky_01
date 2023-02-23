@@ -4,3 +4,16 @@ Solve this expression:
 <%= @expression %><br>
 The answer: 
 <%= @ans %>
+
+Type your answer:
+
+<%= form_with model: @question do |form| %>
+  <div>
+    <% form.label :solution %><br>
+    <%= form.text_area :solution %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

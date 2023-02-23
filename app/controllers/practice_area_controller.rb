@@ -1,9 +1,21 @@
 class PracticeAreaController < ApplicationController
   before_action :random_nums
   before_action :operator
+  before_action :instantiate_question, only: [:index, :create]
   def index
     @expression = (@num1 + @operator + @num2)
     @ans = eval("#{@expression}")
+  end
+  def create
+    @question = Question.new(question_params)
+    @question.question = @expression
+    if @question.save
+      render :index,
+      notice: 'Value recorded'
+    else
+      render :index,
+      notice: 'Not recorded'
+    end
   end
   private
   def random_nums
@@ -13,5 +25,11 @@ class PracticeAreaController < ApplicationController
   def operator
     op_array = ['+', '-', '*', '/']
     @operator = op_array.sample
+  end
+  def instantiate_question
+    @question = Question.new
+  end
+  def question_params
+    params.require(:question).permit(:solution)
   end
 end

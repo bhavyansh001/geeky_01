@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   end
 
   get '/practice', to: 'practice_area#index'
+  resources :questions, only: [:create]
 end
