@@ -1,4 +1,4 @@
-<%= form_with model: @question do |form| %>
+<%= form_with url: "/questions" do |form| %>
   <div>
     <% form.label :question %><br>
     <%= form.text_field :question, value: @expression %>

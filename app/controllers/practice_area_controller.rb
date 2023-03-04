@@ -1,22 +1,16 @@
 class PracticeAreaController < ApplicationController
-  before_action :random_nums
+  before_action :random_nums, except: [:create]
   before_action :operator
   before_action :authenticate_user!
   before_action :set_exp_ans
 
   def index
-    @question = Question.new(question_params)
-    if @question.save
-      redirect_to 'articles/index',
-      notice: 'Saved'
-    else
-      notice:'Failed to save'
-    end
   end
   def countdown
     @countdown = 10
   end
   def level_up
+    
   end
   def bro_vs_pro
   end
@@ -24,15 +18,20 @@ class PracticeAreaController < ApplicationController
   end
 
   def create
-   
+    @question = Question.new(question_params)
+    if @question.save
+      redirect_to 'articles/index', notice: 'Question was successfully saved.'
+    else
+      render :level_up, notice: 'Question could not be saved.'
+    end
   end
   private
   def question_params
-    params.require(:question).permit(:solution)
+    params.require(:question).permit(:question, :solution)
   end
   def random_nums
     @num1 = Random.rand(20).to_s
-    @num2 = Random.rand(10).to_s
+    @num2 = (Random.rand(10) + 1).to_s
   end
   def operator
     op_array = ['+', '-', '*', '/']
