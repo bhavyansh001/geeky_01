@@ -1,0 +1,15 @@
+<%= form_with model: @question do |form| %>
+  <div>
+    <% form.label :question %><br>
+    <%= form.text_field :question, value: @expression %>
+  </div>
+
+  <div>
+    <% form.label :solution %><br>
+    <%= form.text_area :solution %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

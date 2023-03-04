@@ -1,19 +1,6 @@
 <h1>Welcome to the practice area</h1>
-<p>You can test your skills here!</p>
-Solve this expression:
-<%= @expression %><br>
-The answer: 
-<%= @ans %>
-
-Type your answer:
-
-<%= form_with model: @question do |form| %>
-  <div>
-    <% form.label :solution %><br>
-    <%= form.text_area :solution %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+<p>You can test your skills here!</p><br>
+<h3>Choose your preferred mode:</h3>
+<%= link_to 'Level Up', level_up_path %><br>
+<%= link_to 'Bro vs Pro', bro_vs_pro_path %><br>
+<%= link_to 'Bro vs Bro', bro_vs_bro_path %><br>

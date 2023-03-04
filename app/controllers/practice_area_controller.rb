@@ -1,23 +1,35 @@
 class PracticeAreaController < ApplicationController
   before_action :random_nums
   before_action :operator
-  before_action :instantiate_question, only: [:index, :create]
+  before_action :authenticate_user!
+  before_action :set_exp_ans
+
   def index
-    @expression = (@num1 + @operator + @num2)
-    @ans = eval("#{@expression}")
-  end
-  def create
     @question = Question.new(question_params)
-    @question.question = @expression
     if @question.save
-      render :index,
-      notice: 'Value recorded'
+      redirect_to 'articles/index',
+      notice: 'Saved'
     else
-      render :index,
-      notice: 'Not recorded'
+      notice:'Failed to save'
     end
   end
+  def countdown
+    @countdown = 10
+  end
+  def level_up
+  end
+  def bro_vs_pro
+  end
+  def bro_vs_bro
+  end
+
+  def create
+   
+  end
   private
+  def question_params
+    params.require(:question).permit(:solution)
+  end
   def random_nums
     @num1 = Random.rand(20).to_s
     @num2 = Random.rand(10).to_s
@@ -26,10 +38,8 @@ class PracticeAreaController < ApplicationController
     op_array = ['+', '-', '*', '/']
     @operator = op_array.sample
   end
-  def instantiate_question
-    @question = Question.new
-  end
-  def question_params
-    params.require(:question).permit(:solution)
+  def set_exp_ans
+    @expression = (@num1 + @operator + @num2)
+    @ans = eval("#{@expression}")
   end
 end
