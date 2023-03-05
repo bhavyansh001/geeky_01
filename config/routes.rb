@@ -15,5 +15,5 @@ Rails.application.routes.draw do
   get '/bro_vs_bro', to: 'practice_area#bro_vs_bro'
 
   get '/countdown', to: 'practice_area#countdown'
-  resources :questions
+  post '/level_up', to: 'practice_area#create'
 end

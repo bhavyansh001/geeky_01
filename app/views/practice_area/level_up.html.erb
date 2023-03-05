@@ -2,8 +2,3 @@
 <p>This is the level up mode. Here you complete as many questions as you can in 10 seconds</p>
 <%= render 'questions' %>
 <br><br><br>
-<p>Start the timer when you're ready</p>
-<%= turbo_frame_tag do %>
-    <%= link_to 'Start timer', countdown_path, class: "btn btn-primary" %>
-    <%= render 'countdown' %>
-<% end %>
