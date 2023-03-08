@@ -1,13 +1,13 @@
 <%= form_with url: '/level_up' do |form| %>
   <div>
-    <% form.label :question %><br>
-    <%= form.text_field :question, value: @expression %>
+    <% form.label :expression %><br>
+    <%= form.text_field :expression, value: @expression %>
   </div>
 
   <div>
     <% form.label :solution %><br>
     <%= form.text_field :solution %>
-  </div>
+  </div><br>
 
   <div>
     <%= form.submit %>

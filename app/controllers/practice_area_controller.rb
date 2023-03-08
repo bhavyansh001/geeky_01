@@ -1,17 +1,12 @@
 class PracticeAreaController < ApplicationController
+  before_action :authenticate_user!
   before_action :random_nums
   before_action :operator
-  before_action :set_exp_ans
-  before_action :authenticate_user!
-  before_action :question_for_views
 
   def index
   end
-  def countdown
-    @countdown = 10
-  end
   def level_up
-    
+    set_exp_ans
   end
   def bro_vs_pro
   end
@@ -19,16 +14,18 @@ class PracticeAreaController < ApplicationController
   end
 
   def create
-
+    @question = Question.new
+    @question.expression = params[:expression]
+    @question.solution = params[:solution]
     if @question.save
-      redirect_to practice_area_index_path, notice: 'Question was successfully saved.'
+      redirect_to :level_up, notice: 'Question was successfully saved.'
     else
       render :level_up, notice: 'Question could not be saved.'
     end
   end
   private
   def question_params
-    params.require(:question).permit(:question, :solution)
+      params.require(:question).permit(:expression, :solution)
   end
   def operator
     op_array = ['+', '-', '*', '/']
@@ -41,8 +38,5 @@ class PracticeAreaController < ApplicationController
   def set_exp_ans
     @expression = (@num1 + @operator + @num2)
     @ans = eval("#{@expression}")
-  end
-  def question_for_views
-    @question = Question.new
   end
 end
