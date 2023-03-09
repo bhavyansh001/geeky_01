@@ -1,12 +1,11 @@
 <%= form_with url: '/level_up' do |form| %>
   <div>
-    <% form.label :expression %><br>
-    <%= form.text_field :expression, value: @expression %>
+    <%= form.text_field :expression, value: @expression, type: "hidden" %>
   </div>
 
   <div>
-    <% form.label :solution %><br>
-    <%= form.text_field :solution %>
+  <h3>Enter solution: </h3>
+    <%= form.text_field :solution, autofocus: true %>
   </div><br>
 
   <div>
