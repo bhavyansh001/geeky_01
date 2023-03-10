@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/bro_vs_pro', to: 'practice_area#bro_vs_pro'
   get '/bro_vs_bro', to: 'practice_area#bro_vs_bro'
 
-  get '/countdown', to: 'practice_area#countdown'
   post '/level_up', to: 'practice_area#create'
+  
+  get '/question', to: 'practice_area#question'
 end
