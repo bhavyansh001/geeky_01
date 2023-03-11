@@ -1,8 +1,12 @@
 <h1>Level Up mode</h1>
+<div id="time">
 <%= turbo_frame_tag "start" do %>
 <p>This is the level up mode. Here you complete as many questions as you can in 10 seconds</p>
     <%= link_to "Start", question_path, class: "btn btn-primary", data: {controller: "countdown", action: "countdown#start" } %>
 <% end %><br><br><br>
-    <%= link_to 'time', '#', class: 'timer btn btn-primary', id: 'countdown_btn' %>
-Next: Apply a timer here on this page
-2. Make it function using js
+    <%= link_to 'Your time will show here', '#', class: 'timer btn btn-primary btn-lg', id: 'countdown_btn' %>
+</div><br><br><br>
+
+next: Timer in controller with static variable of time or datetime type
+2. Associate this timer with rendering of time_up.html.erb
+
