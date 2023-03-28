@@ -19,11 +19,15 @@ class PracticeAreaController < ApplicationController
   def create
     @question.expression = params[:expression]
     @question.solution = params[:solution]
+    @question.time_taken = Time.now.sec - params[:time_taken].to_i
     if @question.save
       redirect_to :question, notice: 'Question was successfully saved.'
     else
       render :question, notice: 'Question could not be saved.'
     end
+  end
+  def time_up
+    
   end
   private
   def operator
@@ -39,6 +43,6 @@ class PracticeAreaController < ApplicationController
     @ans = eval("#{@expression}")
   end
   def set_question
-    @question = Question.new
+    @question = PracticeArea::Question.new
   end
 end

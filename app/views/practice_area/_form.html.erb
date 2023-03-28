@@ -2,6 +2,10 @@
   <div>
     <%= form.text_field :expression, value: @expression, type: "hidden" %>
   </div>
+  
+  <div>
+     <%= form.hidden_field :time_taken, value: Time.now.sec %>
+  </div>
 
   <div>
   <h3>Enter solution: </h3>

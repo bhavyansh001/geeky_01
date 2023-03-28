@@ -17,4 +17,6 @@ Rails.application.routes.draw do
   post '/level_up', to: 'practice_area#create'
   
   get '/question', to: 'practice_area#question'
+
+  get '/time_up', to: 'practice_area#time_up'
 end
