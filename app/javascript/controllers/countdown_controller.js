@@ -11,7 +11,7 @@ export default class extends Controller {
         if (start == 0) {
             clearInterval(x);
             document.getElementById("countdown_btn").innerHTML = "Time up";
-            window.location.href = "<%= time_up_path %>";
+            window.location.href = "time_up";
         }
       }, 1000);
   }

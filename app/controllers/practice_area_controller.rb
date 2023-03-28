@@ -27,7 +27,6 @@ class PracticeAreaController < ApplicationController
     end
   end
   def time_up
-    
   end
   private
   def operator
