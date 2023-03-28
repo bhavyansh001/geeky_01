@@ -1,4 +1,4 @@
-class Question < ApplicationRecord
+class PracticeArea::Question < ApplicationRecord
     validates :solution, presence: true
     # after_initialize :set_time
     # before_create :time_taken
