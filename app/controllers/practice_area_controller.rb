@@ -3,6 +3,7 @@ class PracticeAreaController < ApplicationController
   before_action :random_nums
   before_action :operator
   before_action :set_question, only: [:question, :create]
+  before_action :set_params, only: [:create]
 
   def index
   end
@@ -17,11 +18,8 @@ class PracticeAreaController < ApplicationController
   end
 
   def create
-    @question.expression = params[:expression]
-    @question.solution = params[:solution]
-    @question.time_taken = Time.now.sec - params[:time_taken].to_i
     if @question.save
-      redirect_to :question, notice: 'Question was successfully saved.'
+      redirect_to :question
     else
       render :question, notice: 'Question could not be saved.'
     end
@@ -43,5 +41,10 @@ class PracticeAreaController < ApplicationController
   end
   def set_question
     @question = PracticeArea::Question.new
+  end
+  def set_params
+    @question.expression = params[:expression]
+    @question.solution = params[:solution]
+    @question.time_taken = Time.now.sec - params[:time_taken].to_i
   end
 end
