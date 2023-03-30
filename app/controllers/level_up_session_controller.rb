@@ -1,0 +1,2 @@
+class LevelUpSessionController < ApplicationController
+end
