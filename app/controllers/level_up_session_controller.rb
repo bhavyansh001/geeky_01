@@ -2,17 +2,14 @@ class LevelUpSessionController < ApplicationController
   before_action :authenticate_user!
   before_action :random_nums
   before_action :operator
-  before_action :set_question, only: [:question, :create]
-  before_action :set_params, only: [:create]  
-  def level_up
-    @level_up_session = PracticeArea::LevelUpSession.new
-    @level_up_session.save
-  end
+  before_action :set_question, only: [:question, :create, :set_params]
+  before_action :set_params, only: [:create]
+
   def question
     set_exp_ans
   end
   def create
-    if @level_up_session.questions.save
+    if @question.save
       redirect_to :question
     else
       render :question, notice: 'Question could not be saved.'
@@ -34,7 +31,8 @@ class LevelUpSessionController < ApplicationController
     @ans = eval("#{@expression}")
   end
   def set_question
-    @question = level_up_session.questions.new
+    @level_up_session = PracticeArea::LevelUpSession.last
+    @question = @level_up_session.questions.new
   end
   def set_params
     @question.expression = params[:expression]
@@ -46,7 +44,5 @@ class LevelUpSessionController < ApplicationController
     else
         @question.time_taken = @time
     end
-
-    @question.level_up_session_id = @level_up_session.id
   end
 end

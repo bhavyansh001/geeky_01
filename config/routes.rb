@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get '/bro_vs_pro', to: 'practice_area#bro_vs_pro'
   get '/bro_vs_bro', to: 'practice_area#bro_vs_bro'
   
-  get '/level_up', to: 'level_up_session#level_up'
+  get '/level_up', to: 'practice_area#level_up'
 
   post '/level_up', to: 'level_up_session#create'
   
