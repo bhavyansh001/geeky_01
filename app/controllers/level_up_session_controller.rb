@@ -2,11 +2,13 @@ class LevelUpSessionController < ApplicationController
   before_action :authenticate_user!
   before_action :random_nums
   before_action :operator
-  before_action :set_question, only: [:question, :create, :set_params]
+  before_action :set_question, only: [:question, :create, :time_up]
   before_action :set_params, only: [:create]
+  before_action :dashboard, only: [:time_up]
 
   def question
-    set_exp_ans
+    @expression = (@num1 + @operator + @num2)
+    @@is_correct = eval("#{@expression}")
   end
   def create
     if @question.save
@@ -16,6 +18,8 @@ class LevelUpSessionController < ApplicationController
     end
   end
   def time_up
+    @corrects = @questions.where(is_correct: true).count
+    @incorrects = @questions.where(is_correct: false).count
   end
   private
   def operator
@@ -26,10 +30,6 @@ class LevelUpSessionController < ApplicationController
     @num1 = Random.rand(20).to_s
     @num2 = (Random.rand(10) + 1).to_s
   end
-  def set_exp_ans
-    @expression = (@num1 + @operator + @num2)
-    @ans = eval("#{@expression}")
-  end
   def set_question
     @level_up_session = PracticeArea::LevelUpSession.last
     @question = @level_up_session.questions.new
@@ -37,12 +37,11 @@ class LevelUpSessionController < ApplicationController
   def set_params
     @question.expression = params[:expression]
     @question.solution = params[:solution]
-
     @time = Time.now.sec - params[:time_taken].to_i
-    if @time > 40
-        @question.time_taken = 60 - @time
-    else
-        @question.time_taken = @time
-    end
+    @question.time_taken = @time < 0 ? @time + 60 : @time
+    @question.is_correct = params[:solution].to_i == @@is_correct
+  end
+  def dashboard
+    @questions = @level_up_session.questions.where.not(solution: nil)
   end
 end

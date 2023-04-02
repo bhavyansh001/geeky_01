@@ -4,3 +4,4 @@ module PracticeArea
       belongs_to :level_up_session, class_name: 'PracticeArea::LevelUpSession'
   end
 end
+
