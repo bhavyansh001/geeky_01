@@ -3,7 +3,7 @@ class PracticeAreaController < ApplicationController
   def index
   end
   def level_up
-    @level_up_session = PracticeArea::LevelUpSession.create
+    @level_up_session = current_user.level_up_sessions.create
   end
   def bro_vs_pro
   end
