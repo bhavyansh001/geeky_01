@@ -1,0 +1,20 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col"><%= title %></th>
+      <th scope="col">Your solution</th>
+      <th scope="col">Time taken</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% type.each_with_index do |question, index| %>
+    <tr>
+      <td><%= index + 1 %></td>
+      <td><%= question.expression %></td>
+      <td><%= question.solution %></td>
+      <td><%= question.time_taken %> secs</td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

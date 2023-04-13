@@ -1,28 +1,11 @@
 <p>Your time is up!</p>
-<p>Correct answers: <%= @corrects %></p>
-<p>Wrong answers: <%= @incorrects %></p>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Questions</th>
-      <th scope="col">Your solution</th>
-      <th scope="col">Time taken</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @questions.each_with_index do |question, index| %>
-    <tr>
-      <td><%= index + 1 %></td>
-      <td><%= question.expression %></td>
-      <td><%= question.solution %></td>
-      <td><%= question.time_taken %> secs</td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<p>Correct answers: <%= @corrects.count %></p>
+<%= render 'table', title: "Questions(corrects)", type: @corrects %>
 <br>
+<p>Wrong answers: <%= @incorrects.count %></p>
+<%= render 'table', title: "Questions(incorrects)", type: @incorrects %>
+
 <%= link_to 'Play again', level_up_path, class: "btn btn-primary", autofocus: true %>
 <%= link_to 'Back to Practice area', practice_area_index_path, class: "btn btn-primary" %>
 <br><br>

@@ -11,6 +11,10 @@ class LevelUpSessionController < ApplicationController
     @@is_correct = eval("#{@expression}")
   end
   def create
+    @level_up_session_question = LevelUpSessionQuestion.new(
+      level_up_session: @level_up_session,
+      question: @question
+      )
     if @question.save
       @level_up_session_question.save
       redirect_to :question
@@ -19,8 +23,10 @@ class LevelUpSessionController < ApplicationController
     end
   end
   def time_up
-    @corrects = @questions.where(is_correct: true).count
-    @incorrects = @questions.where(is_correct: false).count
+    @corrects = PracticeArea::Question
+    .where(is_correct: true, id: @questions.map(&:id))
+    @incorrects = PracticeArea::Question
+    .where(is_correct: false, id: @questions.map(&:id))
   end
   private
   def operator
@@ -34,10 +40,6 @@ class LevelUpSessionController < ApplicationController
   def set_question
     @level_up_session = current_user.level_up_sessions.last
     @question = PracticeArea::Question.new(user_id: current_user.id)
-    @level_up_session_question = LevelUpSessionQuestion.new(
-    level_up_session: @level_up_session,
-    question: @question
-    )
   end
   def set_params
     @question.expression = params[:expression]
@@ -47,6 +49,8 @@ class LevelUpSessionController < ApplicationController
     @question.is_correct = params[:solution].to_i == @@is_correct
   end
   def dashboard
-    @questions = @level_up_session.questions
+    question_ids = PracticeArea::LevelUpSessionQuestion.where(
+      level_up_session_id: @level_up_session.id).pluck(:question_id)
+    @questions = PracticeArea::Question.find(question_ids)
   end
 end
