@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_02_055142) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_09_055651) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -70,6 +70,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_02_055142) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "level_up_session_questions", force: :cascade do |t|
+    t.bigint "level_up_session_id", null: false
+    t.bigint "question_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["level_up_session_id"], name: "index_level_up_session_questions_on_level_up_session_id"
+    t.index ["question_id"], name: "index_level_up_session_questions_on_question_id"
+  end
+
   create_table "level_up_sessions", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -83,7 +92,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_02_055142) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "time_taken"
-    t.integer "level_up_session_id"
     t.boolean "is_correct", default: false
     t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_questions_on_user_id"
@@ -105,7 +113,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_02_055142) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "articles"
   add_foreign_key "comments", "users"
+  add_foreign_key "level_up_session_questions", "level_up_sessions"
+  add_foreign_key "level_up_session_questions", "questions"
   add_foreign_key "level_up_sessions", "users"
-  add_foreign_key "questions", "level_up_sessions"
   add_foreign_key "questions", "users"
 end

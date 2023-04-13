@@ -6,8 +6,10 @@ class User < ApplicationRecord
   has_many :articles
   has_many :comments
 
-  has_many :level_up_sessions, class_name: 'PracticeArea::LevelUpSession'
-  has_many :questions, class_name: 'PracticeArea::Question'
+  has_many :level_up_sessions, 
+  class_name: 'PracticeArea::LevelUpSession'
+  has_many :questions, through: :level_up_sessions, 
+  class_name: 'PracticeArea::LevelUpSession'
 
   def username
     self.email.split('@')[0].capitalize

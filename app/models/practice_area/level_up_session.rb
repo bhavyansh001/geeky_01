@@ -1,6 +1,9 @@
 module PracticeArea
   class LevelUpSession < ApplicationRecord
-    has_many :questions, class_name: 'PracticeArea::Question'
     belongs_to :user
+    has_many :level_up_session_questions, 
+    class_name: 'PracticeArea::LevelUpSessionQuestion'
+    has_many :questions, through: :level_up_session_questions, 
+    class_name: 'PracticeArea::LevelUpSessionQuestion'
   end
 end

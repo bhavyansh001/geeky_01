@@ -12,6 +12,7 @@ class LevelUpSessionController < ApplicationController
   end
   def create
     if @question.save
+      @level_up_session_question.save
       redirect_to :question
     else
       render :question, notice: 'Question could not be saved.'
@@ -32,7 +33,11 @@ class LevelUpSessionController < ApplicationController
   end
   def set_question
     @level_up_session = current_user.level_up_sessions.last
-    @question = @level_up_session.questions.build(user_id: current_user.id)
+    @question = PracticeArea::Question.new(user_id: current_user.id)
+    @level_up_session_question = LevelUpSessionQuestion.new(
+    level_up_session: @level_up_session,
+    question: @question
+    )
   end
   def set_params
     @question.expression = params[:expression]
@@ -42,6 +47,6 @@ class LevelUpSessionController < ApplicationController
     @question.is_correct = params[:solution].to_i == @@is_correct
   end
   def dashboard
-    @questions = @level_up_session.questions.where.not(solution: nil)
+    @questions = @level_up_session.questions
   end
 end
