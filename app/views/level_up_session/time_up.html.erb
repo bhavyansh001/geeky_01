@@ -1,10 +1,12 @@
 <p>Your time is up!</p>
 
 <p>Correct answers: <%= @corrects.count %></p>
-<%= render 'table', title: "Questions(corrects)", type: @corrects %>
+<%= render 'table', title: "Questions(corrects)", 
+type: @corrects if @corrects.count != 0 %>
 <br>
 <p>Wrong answers: <%= @incorrects.count %></p>
-<%= render 'table', title: "Questions(incorrects)", type: @incorrects %>
+<%= render 'table', title: "Questions(incorrects)", 
+type: @incorrects if @incorrects.count != 0 %>
 
 <%= link_to 'Play again', level_up_path, class: "btn btn-primary", autofocus: true %>
 <%= link_to 'Back to Practice area', practice_area_index_path, class: "btn btn-primary" %>

@@ -11,7 +11,7 @@ class LevelUpSessionController < ApplicationController
     @@is_correct = eval("#{@expression}")
   end
   def create
-    @level_up_session_question = LevelUpSessionQuestion.new(
+    @level_up_session_question = PracticeArea::LevelUpSessionQuestion.new(
       level_up_session: @level_up_session,
       question: @question
       )
