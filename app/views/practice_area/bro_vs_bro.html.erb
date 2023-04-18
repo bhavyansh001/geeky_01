@@ -2,5 +2,11 @@
 <p>Here you can create a room which can be joined by your friend</p>
 <p>Just create a new room, share the room's link with your friend through which he/she can join</p>
 <p>This way you can play with your friends, seeing the number of questions they have attempted and more.</p>
+<h1>Create Room</h1>
+<%= form_with url: "/rooms" do |form| %>
+  <%= form.label :name %><br>
+  <%= form.text_field :name %>
 
-<%= link_to 'Create room', "#", class: "btn btn-primary" %>
+  <%= form.submit "Create Room" %>
+<% end %><br><br><br>
+<!--<%= link_to 'Create room', "#", class: "btn btn-primary" %>-->

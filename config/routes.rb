@@ -19,4 +19,7 @@ Rails.application.routes.draw do
   get '/question', to: 'level_up_session#question'
 
   get '/time_up', to: 'level_up_session#time_up'
+
+  post '/rooms', to: 'bro_vs_bro#create'
+  get '/bro_vs_bro/show'
 end

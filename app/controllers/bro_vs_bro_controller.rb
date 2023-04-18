@@ -1,12 +1,9 @@
-class BroVsBroController < ApplicationController
-  def    
-  end  
+class BroVsBroController < ApplicationController  
   def create
-    @room = current_user.rooms.create(room_params)
-    redirect_to @room
+    @room = current_user.rooms.create(name: params[:name])
+    redirect_to '/bro_vs_bro/show'
   end
-  private
-  def room_params
-    params.require(:room).permit(:name)
+  def show
+    @room = Room.last
   end
 end
