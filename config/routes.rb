@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'rooms/show'
   get 'practice_area/index'
   root 'home#index'
   get 'home/about'
@@ -20,6 +21,6 @@ Rails.application.routes.draw do
 
   get '/time_up', to: 'level_up_session#time_up'
 
-  post '/rooms', to: 'bro_vs_bro#create'
-  get '/bro_vs_bro/show'
+  # post '/rooms', to: 'bro_vs_bro#create'
+  resources :rooms
 end
