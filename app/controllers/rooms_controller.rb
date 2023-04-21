@@ -1,18 +1,21 @@
 class RoomsController < ApplicationController
-  before_action :show, only: [:join_room]
+  before_action :authenticate_user!
+  before_action :room_parameters, only: [:show]
   def create
     @room = current_user.rooms.create(name: params[:name])
     redirect_to room_path(@room)
   end
   def show
-    @room = Room.last
-    @user = current_user.email.split('@')[0].capitalize
+    @creator = @room.user
   end
   def join
     @room_id = params[:url].split("/").last.to_i
-    redirect_to join_url
+    @room = current_user.rooms.find(@room_id)
+    redirect_to room_path(@room)
   end
-  def join_room
-    @join_room = Room.where(id: @room_id)
+  private
+  def room_parameters
+    @room = Room.find(params[:id])
+    @room_id = params[:id]
   end
 end
