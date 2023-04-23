@@ -21,8 +21,5 @@ Rails.application.routes.draw do
 
   get '/time_up', to: 'level_up_session#time_up'
   
-  resources :rooms
-
-  post '/join_room', to: 'rooms#join'
-  get '/join', to: 'rooms#join_room'
+  resources :rooms    # edit it to only include necessary routes
 end

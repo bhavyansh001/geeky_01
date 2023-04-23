@@ -14,5 +14,6 @@ class User < ApplicationRecord
   def username
     self.email.split('@')[0].capitalize
   end
-  has_many :rooms
+  has_many :participants
+  has_many :rooms, through: :participants
 end

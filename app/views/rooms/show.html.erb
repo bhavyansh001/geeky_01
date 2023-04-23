@@ -6,3 +6,8 @@
 Created by: <%= @creator.username %>
 <h3>Welcome</h3>
 <p>You have joined the room with id: <%= @room_id %></p>
+<hr>
+<h3>Users in the room:</h3>
+<% @all_users.each do |user| %>
+  <%= user.username %><br>
+<% end %>

@@ -3,19 +3,24 @@ class RoomsController < ApplicationController
   before_action :room_parameters, only: [:show]
   def create
     @room = current_user.rooms.create(name: params[:name])
+    add_participant
     redirect_to room_path(@room)
   end
   def show
     @creator = @room.user
-  end
-  def join
-    @room_id = params[:url].split("/").last.to_i
-    @room = current_user.rooms.find(@room_id)
-    redirect_to room_path(@room)
+    @all_users = User.joins(:participants).where(participants: { room_id: @room.id })
+    if current_user != @creator
+      add_participant
+    end
   end
   private
   def room_parameters
     @room = Room.find(params[:id])
     @room_id = params[:id]
   end
+  def add_participant
+    unless Participant.exists?(user: current_user, room: @room)
+      Participant.create(user: current_user, room: @room)
+    end
+  end  
 end
