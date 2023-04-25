@@ -9,9 +9,7 @@ class RoomsController < ApplicationController
   def show
     @creator = @room.user
     @all_users = User.joins(:participants).where(participants: { room_id: @room.id })
-    if current_user != @creator
-      add_participant
-    end
+    add_participant unless current_user == @creator
   end
   private
   def room_parameters
