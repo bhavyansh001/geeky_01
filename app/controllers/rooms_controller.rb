@@ -8,7 +8,9 @@ class RoomsController < ApplicationController
   end
   def show
     @creator = @room.user
-    @all_users = User.joins(:participants).where(participants: { room_id: @room.id })
+    @all_users = User.joins(:participants)
+    .where(participants: { room_id: @room.id })
+    .order(created_at: :asc)
     add_participant unless current_user == @creator
   end
   private
