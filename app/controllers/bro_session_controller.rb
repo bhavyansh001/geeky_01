@@ -1,0 +1,2 @@
+class BroSessionController < ApplicationController
+end

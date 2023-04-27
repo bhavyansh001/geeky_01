@@ -1,5 +1,3 @@
-<%= turbo_stream_from "users" %>
-
 <h3><%= @room.name %></h3>
 <% if current_user == @creator %>
   <p>Share this link with your friend:</p>
@@ -10,8 +8,7 @@ Created by: <%= @creator.username %>
 <p>You have joined the room with id: <%= @room_id %></p>
 <hr>
 <h3>Users in the room:</h3>
-<div id="users">
-    <% @all_users.each do |user| %>
-      <%= render "users/user", user: user %>
-    <% end %>
-</div>
+<% @all_users.each do |user| %>
+  <%= render "users/user", user: user %>
+<% end %>
+<%= link_to "Begin playing", "#", class: "btn btn-primary" %>
