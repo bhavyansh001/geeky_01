@@ -21,5 +21,8 @@ Rails.application.routes.draw do
 
   get '/time_up', to: 'level_up_session#time_up'
   
-  resources :rooms    # edit it to only include necessary routes
+  resources :rooms do   # edit it to only include necessary routes
+    resources :bro_session, only: [:index]
+  end
+  post '/rooms/:room_id/bro_session', to: "bro_session#create"
 end

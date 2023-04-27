@@ -10,5 +10,5 @@ Created by: <%= @creator.username %>
 <h3>Users in the room:</h3>
 <% @all_users.each do |user| %>
   <%= render "users/user", user: user %>
-<% end %>
-<%= link_to "Begin playing", "#", class: "btn btn-primary" %>
+<% end %><br>
+<%= link_to "Begin playing", room_bro_session_index_path(@room), class: "btn btn-primary" %>
