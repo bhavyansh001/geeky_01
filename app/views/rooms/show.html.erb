@@ -1,9 +1,7 @@
-<h3><%= @room.name %></h3>
-<% if current_user == @creator %>
-  <p>Share this link with your friend:</p>
-  <p><%= room_url(@room) %></p>
-<% end %>
-Created by: <%= @creator.username %>
+<%= turbo_stream_from @room %>
+<div id="<%= dom_id(@room) %>">
+  <%= render @room %>
+</div>
 <h3>Welcome</h3>
 <p>You have joined the room with id: <%= @room_id %></p>
 <hr>
