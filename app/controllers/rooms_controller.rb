@@ -3,12 +3,12 @@ class RoomsController < ApplicationController
   before_action :room_parameters, only: [:show]
   def create
     @room = current_user.rooms.create(name: params[:name])
-    add_participant
+    @new_user = add_participant
     redirect_to room_path(@room)
   end
   def show
     @creator = @room.user
-    @all_users = User.joins(:participants)
+    @users = User.joins(:participants)
     .where(participants: { room_id: @room.id })
     .order(created_at: :asc)
     add_participant unless current_user == @creator
@@ -20,7 +20,8 @@ class RoomsController < ApplicationController
   end
   def add_participant
     unless Participant.exists?(user: current_user, room: @room)
-      Participant.create(user: current_user, room: @room)
+      new = Participant.create(user: current_user, room: @room)
+      new
     end
   end  
 end
