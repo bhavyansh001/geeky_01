@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_18_094302) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_02_042204) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -58,6 +58,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_18_094302) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_articles_on_user_id"
+  end
+
+  create_table "bro_sessions", force: :cascade do |t|
+    t.bigint "question_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_bro_sessions_on_question_id"
+    t.index ["user_id"], name: "index_bro_sessions_on_user_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -128,6 +137,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_18_094302) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "bro_sessions", "questions"
+  add_foreign_key "bro_sessions", "users"
   add_foreign_key "comments", "articles"
   add_foreign_key "comments", "users"
   add_foreign_key "level_up_session_questions", "level_up_sessions"
