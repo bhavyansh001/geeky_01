@@ -1,11 +1,15 @@
 <h3>Your question: </h3> <h2><%= @expression %></h2>
- <%= form_with url: '/rooms/:room_id/bro_session' do |form| %>
+ <%= form_with url: "/rooms/#{@room.id}/bro_session" do |form| %>
   <div>
     <%= form.text_field :expression, value: @expression, type: "hidden" %>
   </div>
   
   <div>
      <%= form.hidden_field :time_taken, value: Time.now.sec %>
+  </div>
+
+  <div>
+     <%= form.hidden_field :room_id, value: @room.id %>
   </div>
 
   <div>
@@ -17,3 +21,4 @@
     <%= form.submit %>
   </div>
 <% end %>
+<%= params[:room_id] %>

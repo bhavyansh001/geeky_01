@@ -38,7 +38,7 @@ class LevelUpSessionController < ApplicationController
     @num2 = (Random.rand(10) + 1).to_s
   end
   def set_question
-    @level_up_session = current_user.level_up_sessions.last
+    @level_up_session = current_user.level_up_sessions.last   # look for an alternative to .last method
     @question = PracticeArea::Question.new(user_id: current_user.id)
   end
   def set_params

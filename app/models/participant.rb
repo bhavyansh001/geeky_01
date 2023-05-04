@@ -1,6 +1,7 @@
 class Participant < ApplicationRecord
   belongs_to :user
   belongs_to :room
+  has_many :bro_sessions
   after_create_commit :update_users
 
   private

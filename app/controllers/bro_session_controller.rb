@@ -3,14 +3,19 @@ class BroSessionController < ApplicationController
     before_action :operator, only: [:index]
     before_action :random_nums, only: [:index]
     before_action :set_params, only: [:create]
+    before_action :set_room
   def index
     @expression = (@num1 + @operator + @num2)
     @@is_correct = eval("#{@expression}")
   end
   def create
     if @question.save
-        redirect_to room_bro_session_index_path
+        redirect_to room_bro_session_index_path(@room)
+        set_bro_session
     end
+  end
+  def set_room
+    @room = Room.find(params[:room_id])
   end
   private
   def operator
@@ -30,4 +35,9 @@ class BroSessionController < ApplicationController
       time_taken: (Time.now.sec - params[:time_taken].to_i) % 60
     )
   end
+  def set_bro_session
+    participant = Participant.find_by(user: current_user, room_id: params[:room_id])
+    @bro_session = BroSession.create(question: @question, participant: participant)
+  end
+  
 end
