@@ -14,10 +14,17 @@ class BroSessionController < ApplicationController
         set_bro_session
     end
   end
+  def dashboard
+    participant_ids = Participant.where(room: @room).pluck(:user_id)
+    @participants = User.where(id: participant_ids)
+
+    question_ids = BroSession.where(room_id: @room.id).pluck(:question_id)    
+    @questionsU = PracticeArea::Question.where(id: question_ids, user_id: @participants).group_by(&:user_id)
+  end
+  private
   def set_room
     @room = Room.find(params[:room_id])
   end
-  private
   def operator
     op_array = ['+', '-', '*', '/']
     @operator = op_array.sample
@@ -36,8 +43,9 @@ class BroSessionController < ApplicationController
     )
   end
   def set_bro_session
-    participant = Participant.find_by(user: current_user, room_id: params[:room_id])
-    @bro_session = BroSession.create(question: @question, participant: participant)
+    participant = Participant.find_by(user: current_user,
+     room_id: params[:room_id])
+    BroSession.create(question: @question,
+     participant: participant, room_id: params[:room_id])
   end
-  
 end

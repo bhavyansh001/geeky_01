@@ -1,9 +1,7 @@
 <h3>Dashboard</h3>
-<p>User 1:<%= @user1.username %></p>
-<p>Questions answered: <%= @questionsU1 %></p>
-<p>Time taken: <%= @time_takenU1 %></p>
+<% @participants.each_with_index do |participant, index| %>
+  <%= render "level_up_session/table",
+   title: participant.username, 
+   type: @questionsU[participant.id] %><hr>
+<% end %>
 
-<hr>
-<p>User 2:<%= @user2.username %></p>
-<p>Questions answered: <%= @questionsU2 %></p>
-<p>Time taken: <%= @time_takenU1 %></p>

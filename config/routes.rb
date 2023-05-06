@@ -18,4 +18,6 @@ Rails.application.routes.draw do
     resources :bro_session, only: [:index]
   end
   post '/rooms/:room_id/bro_session', to: "bro_session#create"
+  get 'rooms/:room_id/dashboard', to: "bro_session#dashboard",
+   as: "room_dashboard"
 end
