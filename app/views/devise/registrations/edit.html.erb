@@ -1,17 +1,5 @@
-<h2>Your Profile</h2><br>
+<h2>Edit your details</h2><br>
 
-<h4>Your stats</h4>
-<%= render "stats/stats" %>
-
-<p>
-  <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-    Edit details
-  </a>
-</p>
-<div class="collapse" id="collapseExample">
-  <div class="card card-body">
-
-<h4>Edit details</h4>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -51,8 +39,6 @@
 
 <p><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo: false }, method: :delete, class: "btn btn-danger" %></p>
 
-  </div>
-</div>
 
 
 <%= link_to "Back", :back, class: "btn btn-primary" %><br><br>

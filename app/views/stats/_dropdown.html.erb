@@ -1,0 +1,10 @@
+<p>
+  <a class="btn btn-primary" data-bs-toggle="collapse" href="#<%= subject%>" role="button" aria-expanded="false" aria-controls="<%= subject%>">
+    <%= subject %>
+  </a>
+</p>
+<div class="collapse" id="<%= subject%>">
+  <div class="card card-body">
+    <%= render 'level_up_session/table', title: subject, type: query %>
+  </div>
+</div><br>
