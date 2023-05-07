@@ -17,7 +17,8 @@
             <%= link_to "Profile", profile_path, class: "nav-link active" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Sign out", destroy_user_session_path, class: "nav-link active", data: {turbo_method: :delete} %>
+            <%= link_to "Sign out", destroy_user_session_path, class: "nav-link active",
+             data: {turbo_method: :delete} %>
           </li>
         <% else %>
           <li class="nav-item">
@@ -26,9 +27,10 @@
           <li class="nav-item">
             <%= link_to "Sign in", new_user_session_path, class: "nav-link active" %>
           </li>
-          <!-- <li class="nav-item">
-            <%= link_to "Explore as guest", root_path, class: "nav-link active" %>
-          </li> -->
+          <li class="nav-item">
+            <%= link_to "Explore as guest", new_guest_session_path, class: "nav-link active",
+             data: {turbo_method: :post} %>
+          </li>
         <% end %>
           <li class="nav-item">
             <%= link_to "About us", home_about_path, class: "nav-link active" %>

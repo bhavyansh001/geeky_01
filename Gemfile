@@ -72,4 +72,4 @@ group :test do
 end
 
 gem "devise", "~> 4.9.2"
-gem 'faker'
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'
