@@ -21,4 +21,6 @@ Rails.application.routes.draw do
   get 'rooms/:room_id/dashboard', to: "bro_session#dashboard",
    as: "room_dashboard"
   get '/profile', to: 'stats#stats'
+  post 'guests/sign_in', to: 'guests#create', as: :new_guest_session
+
 end
