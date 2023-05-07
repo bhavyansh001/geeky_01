@@ -18,7 +18,7 @@ class User < ApplicationRecord
   has_many :rooms
 
   def avg_time_taken
-    self.questions.average(:time_taken)
+    self.questions.average(:time_taken).round(1)
   end
 
   def best_time_taken

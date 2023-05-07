@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
   def index
-    @articles = LearningArea::Article.all
+    @articles = Article.all
   end
 
   def new
@@ -58,7 +58,7 @@ class ArticlesController < ApplicationController
     notice: 'Not authorized to edit this article!' if @user.nil?
   end
   def set_article
-    @article = LearningArea::Article.find(params[:id])
+    @article = Article.find(params[:id])
     @article_user = @article.user.username
   end
 end

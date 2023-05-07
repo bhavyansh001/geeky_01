@@ -3,7 +3,7 @@
 <%= render 'dropdown', subject: "Subtractions", query: @subtraction_questions %>
 <%= render 'dropdown', subject: "Multiplications", query: @multiplication_questions %>
 <%= render 'dropdown', subject: "Divisions", query: @division_questions %><br>
-<h5>Average time:<%= @avg_time_taken %></h5>
-<h5>Best time:<%= @best_time_taken %></h5>
+<h5>Average time: <%= @avg_time_taken %> seconds</h5>
+<h5>Best time: <%= @best_time_taken %> seconds</h5>
 <hr>
 <%= link_to "Edit your personal details", edit_user_registration_path, class: "btn btn-primary" %>

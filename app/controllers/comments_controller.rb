@@ -26,6 +26,6 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:name, :body)
   end
   def set_article
-    @article = LearningArea::Article.find(params[:article_id])
+    @article = Article.find(params[:article_id])
   end
 end
