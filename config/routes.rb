@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'guests/create'
   get 'rooms/show'
   get 'practice_area/index'
   root 'home#index'
