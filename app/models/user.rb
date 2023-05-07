@@ -18,10 +18,17 @@ class User < ApplicationRecord
   has_many :rooms
 
   def avg_time_taken
-    self.questions.average(:time_taken).round(1)
+    average_time = self.questions.average(:time_taken)
+    average_time.present? ? average_time.round(1) : nil
   end
 
   def best_time_taken
     self.questions.minimum(:time_taken)
+  end
+
+  def accuracy
+    correct_count = self.questions.where(is_correct: true).count
+    total_count = self.questions.count
+    return 100 * correct_count / total_count if total_count > 0
   end
 end

@@ -1,9 +1,14 @@
-<%= render 'dropdown', subject: "All_questions", query: @all_questions %>
-<%= render 'dropdown', subject: "Additions", query: @addition_questions %>
-<%= render 'dropdown', subject: "Subtractions", query: @subtraction_questions %>
-<%= render 'dropdown', subject: "Multiplications", query: @multiplication_questions %>
-<%= render 'dropdown', subject: "Divisions", query: @division_questions %><br>
-<h5>Average time: <%= @avg_time_taken %> seconds</h5>
-<h5>Best time: <%= @best_time_taken %> seconds</h5>
-<hr>
-<%= link_to "Edit your personal details", edit_user_registration_path, class: "btn btn-primary" %>
+<% if !@avg_time_taken %>
+  <h4>Play a game to get your stats</h4>
+<% else %>
+  <%= render 'dropdown', subject: "All_questions", query: @all_questions %>
+  <%= render 'dropdown', subject: "Additions", query: @addition_questions %>
+  <%= render 'dropdown', subject: "Subtractions", query: @subtraction_questions %>
+  <%= render 'dropdown', subject: "Multiplications", query: @multiplication_questions %>
+  <%= render 'dropdown', subject: "Divisions", query: @division_questions %><br>
+  <h5>Average time: <%= @avg_time_taken %> seconds</h5>
+  <h5>Best time: <%= @best_time_taken %> seconds</h5>
+  <h5>Accuracy: <%= @accuracy %> %</h5>
+  <hr>
+<% end %><br>
+  <%= link_to "Edit your personal details", edit_user_registration_path, class: "btn btn-primary" %><br><br>
