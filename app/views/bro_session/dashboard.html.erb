@@ -1,0 +1,7 @@
+<h3>Dashboard</h3>
+<% @participants.each_with_index do |participant, index| %>
+  <%= render "level_up_session/table",
+   title: participant.username, 
+   type: @questionsU[participant.id] %><hr>
+<% end %>
+

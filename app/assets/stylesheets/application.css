@@ -30,3 +30,11 @@
     max-height: 28vh;
     overflow-y: hidden;
 }
+#countdown_btn {
+    position: absolute;
+    top: 100px;
+    right: 100px;
+}
+#countdown_btn:hover {
+    cursor: inherit;
+}

@@ -1,0 +1,25 @@
+<h3>Your question: </h3> <h2><%= @expression %></h2>
+ <%= form_with url: "/rooms/#{@room.id}/bro_session" do |form| %>
+  <div>
+    <%= form.text_field :expression, value: @expression, type: "hidden" %>
+  </div>
+  
+  <div>
+     <%= form.hidden_field :time_taken, value: Time.now.sec %>
+  </div>
+
+  <div>
+     <%= form.hidden_field :room_id, value: @room.id %>
+  </div>
+
+  <div>
+  <h3>Enter solution: </h3>
+    <%= form.text_field :solution, autofocus: true %>
+  </div><br>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+<br>
+<%= link_to "Go to dashboard", room_dashboard_path, class: "btn btn-primary" %>

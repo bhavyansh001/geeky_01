@@ -1,0 +1,9 @@
+<h1>Level Up mode</h1>
+<div id="time">
+<%= turbo_frame_tag "start" do %>
+<p>This is the level up mode. Here you complete as many questions as you can in 10 seconds</p>
+    <%= link_to "Start", question_path, class: "btn btn-primary", autofocus: true, data: {controller: "countdown", action: "countdown#start" } %>
+<%= link_to 'Back to Practice area', practice_area_index_path, class: "btn btn-primary" %>
+<% end %><br><br><br>
+    <%= link_to 'Your time will show here', '#', class: 'timer btn btn-primary btn-lg', id: 'countdown_btn' %>
+</div><br><br><br>

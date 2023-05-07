@@ -1,0 +1,16 @@
+<h3><%= @room.name %></h3>
+<% if current_user == @creator %>
+  <p>Share this link with your friend:</p>
+  <p><%= room_url(@room) %></p>
+<% end %>
+Created by: <%= @creator.username %>
+
+<h3>Welcome</h3>
+<p>You have joined the room with id: <%= @room_id %></p>
+<hr>
+<h3>Users in the room:</h3>
+<%= turbo_stream_from @room, :user %>
+<div id="room">
+  <%= render @users %>
+</div>
+<%= link_to "Begin playing", room_bro_session_index_path(@room), class: "btn btn-primary" %>
