@@ -9,9 +9,16 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    if params[:guest]
+      user = User.create(email: Faker::Internet.email,
+        password: Faker::Internet.password, guest: true)
+      sign_in(user)
+      redirect_to root_path
+    else
+      super
+    end
+  end
 
   # DELETE /resource/sign_out
   # def destroy

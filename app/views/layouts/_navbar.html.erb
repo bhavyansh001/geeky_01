@@ -28,8 +28,8 @@
             <%= link_to "Sign in", new_user_session_path, class: "nav-link active" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Explore as guest", new_guest_session_path, class: "nav-link active",
-             data: {turbo_method: :post} %>
+              <%= link_to "Login as Guest", user_session_path(guest: true),
+               data: {turbo_method: :post}, class: "nav-link active" %>
           </li>
         <% end %>
           <li class="nav-item">
