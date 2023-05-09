@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  get 'rooms/show'
-  get 'practice_area/index'
+  # get 'rooms/show'
+  # get 'practice_area/index'
   root 'home#index'
   get 'home/about'
-  devise_for :users
+  devise_for :users, controllers: { sessions: 'users/sessions'}
   resources :articles do
     resources :comments
   end
@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   get 'rooms/:room_id/dashboard', to: "bro_session#dashboard",
    as: "room_dashboard"
   get '/profile', to: 'stats#stats'
+  post '/guests/sign_in', to: 'guests#create', as: :new_guest_session
 end
