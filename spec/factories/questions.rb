@@ -1,9 +1,8 @@
 FactoryBot.define do
-  factory :question do
+  factory :question, class: 'PracticeArea::Question' do
     expression { "MyString" }
-    solution { "MyString" }
+    solution { 99 }
     time_taken { 1 }
     is_correct { false }
-    user { nil }
   end
 end
