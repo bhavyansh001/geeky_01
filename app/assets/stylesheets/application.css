@@ -90,3 +90,9 @@ p {
    .card-footer {
     padding-top: 20px;
    }
+
+.div-block{
+    display: flex; /* Use Flexbox */
+    align-items: center; /* Center the buttons vertically */
+    padding: 20px; /* Add some padding around the div block *//* Set a max-width for the div block */
+}
