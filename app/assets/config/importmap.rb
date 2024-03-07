@@ -3,7 +3,6 @@ Rails.application.config.importmap.draw do
   pin "application", preload: true
  
   # Pin your custom JavaScript files
-  pin "jquery", to: "jquery.js"
   pin "js", to: "js.js"
  
   # Pin all JavaScript files in the controllers directory

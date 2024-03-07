@@ -15,22 +15,17 @@
  */
 @import "./actiontext.css";
 @import "./css.css";
- 
-.footer {
-    background-color: #353A3D;
-    color: white;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Roboto, sans-serif;
 }
-.footer a {
-    color: white;
-    text-decoration: none;
+p {
+    font-family: Poppins, sans-serif;
 }
-#short-card {
+/* #short-card {
     max-height: 28vh;
     overflow-y: hidden;
-}
+} */
 #countdown_btn {
     position: absolute;
     top: 100px;
@@ -39,3 +34,59 @@
 #countdown_btn:hover {
     cursor: inherit;
 }
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creates 3 columns of equal width */
+    grid-gap: 20px; /* Adjust the gap between cards */
+    padding: 20px; /* Optional: Add some padding around the grid */
+    max-width: 940px; /* Optional: Set a max-width for the grid */
+    margin: 0 auto; /* Center the grid */
+   }
+   
+   .card-body {
+    padding: 20px; /* Padding inside the card body */
+    background-color: #fff; /* Set a background color for the card body */
+    border: 1px solid #e4ebf3; /* Add a border around the card body */
+    border-radius: 4px; /* Optional: Add rounded corners to the card body */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow for depth */
+   }
+   
+   .card-body h2 {
+    margin-top: 0; /* Remove the top margin for the title */
+    margin-bottom: 10px; /* Add some space below the title */
+    font-size: 24px; /* Increase the font size for the title */
+    font-weight: bold; /* Make the title bold */
+    font-family: Roboto, sans-serif;
+
+   }
+   
+   .card-body p {
+    margin-bottom: 10px; /* Add some space below the paragraph */
+    font-family: Poppins, sans-serif;
+   }
+   
+   /* Optional: Style the link within the card body */
+   .card-body a {
+    color: #007BFF; /* Set a blue color for the link */
+    text-decoration: none; /* Remove the underline */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+    display: inline-block; /* Make the link a block element for better styling */
+    padding: 10px 20px; /* Add some padding to the link */
+    background-color: #e4ebf3; /* Set a background color for the link */
+    border-radius: 4px; /* Optional: Add rounded corners to the link */
+    text-align: center; /* Center the text within the link */
+    font-size: 14px; /* Set a font size for the link */
+    line-height: 1.5; /* Set a comfortable line height for readability */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+   }
+   
+   .card-body a:hover {
+    color: #fff; /* Change the link text color on hover */
+    background-color: #007BFF; /* Change the link background color on hover */
+   }
+   
+   /* Optional: Add some space between the card body and the card footer */
+   .card-footer {
+    padding-top: 20px;
+   }

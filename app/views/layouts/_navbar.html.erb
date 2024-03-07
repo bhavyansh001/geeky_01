@@ -1,8 +1,53 @@
-<div class="navbar-logo-left">
+<!-- <nav class="navbar navbar-expand-lg nav-bg">
+  <div class="container-fluid">
+    <div class="container-2">
+      <div class="navbar-wrapper">
+        <%= link_to "Geeky", root_path, class: "text-block navbar-brand w-nav-brand" %>
+      </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-menu-two w-list-unstyled">
+      <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "Learning area", articles_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Practice area", practice_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Profile", profile_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Sign out", destroy_user_session_path, class: "nav-link",
+             data: {turbo_method: :delete} %>
+          </li>
+          <li class="mobile-margin-top-10">
+                  <%= link_to "Play now!", practice_path, class: "button-primary-2 w-button" %>
+                </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Register", new_user_registration_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Sign in", new_user_session_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+              <%= link_to "Login as Guest", user_session_path(guest: true),
+               data: {turbo_method: :post}, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
+         </div>
+  </div>
+</nav> -->
+ <div class="navbar-logo-left">
       <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar-logo-left-container shadow-three w-nav">
         <div class="container-2">
           <div class="navbar-wrapper">
-                <%= link_to "Geeky", root_path, class: "text-block navbar-brand w-nav-brand" %>
+                <%= link_to "Geeky", root_path, class: "text-block" %>
             <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
               <ul role="list" class="nav-menu-two w-list-unstyled" style="list-style-type:none;">
               

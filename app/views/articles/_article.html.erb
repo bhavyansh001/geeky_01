@@ -1,7 +1,7 @@
-<div class="card">
-  <div class="card-body" id= "short-card">
+<div class="card-grid">
+  <div class="card-body">
     <h2><%= article.title %></h2>
     <p><%= article.body %></p>
+    <%= link_to "Read further on '#{article.title}'", article_path(article), class: "button-primary" %>
   </div>
-    <%= link_to "Read further on '#{article.title}'", article_path(article), class: "btn btn-primary" %>
-</div><br>
+</div>
