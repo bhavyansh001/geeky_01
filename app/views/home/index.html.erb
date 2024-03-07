@@ -1,2 +1,16 @@
-<h1>Geeky</h1>
-<p>Geeky is a platform to test your mathematical skills.</p>
+<section class="hero-section">
+      <div class="container">
+        <div class="hero-wrapper-two">
+          <h1 class="heading">A mathematical game to test your skills</h1>
+          <p class="margin-bottom-24px">Welcome to Geeky! This is a full stack project that lets you write articles (in the learning area) and test your mathematical skills (in the practice area). Backend is powered by Ruby on Rails, data is stored in Postgresql database. The project also uses Redis for some real time functionality.</p>
+          <div class="div-block">
+            <% if user_signed_in?%>
+                <%= link_to "Learning area", articles_path, class: "button-primary w-button"%>
+                <%= link_to "Practice area", practice_path, class: "button-primary w-button"%>
+            <% else %>
+                <p class="margin-bottom-24px">Sign in to view application features. Login as guest to make it quick.</p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </section>

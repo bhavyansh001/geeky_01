@@ -1,8 +1,11 @@
-Importmap.draw do
-    # Map your JS files
-    pin "js.js", to: "assets/javascript/js.js"
-    pin "jquery", to: "assets/javascript/jquery.js"
-  
-    # Map your CSS file
-    pin "css.css", to: "assets/stylesheets/css.css"
-  end
+Rails.application.config.importmap.draw do
+  # Pin the application JavaScript file
+  pin "application", preload: true
+ 
+  # Pin your custom JavaScript files
+  pin "jquery", to: "jquery.js"
+  pin "js", to: "js.js"
+ 
+  # Pin all JavaScript files in the controllers directory
+  pin_all_from "app/javascript/controllers", under: "controllers"
+ end

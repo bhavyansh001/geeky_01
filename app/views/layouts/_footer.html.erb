@@ -1,18 +1,3 @@
-<div class="footer">
-    <div class="container py-4">
-        <h3 class= "text-center">Geeky</h3><hr>
-        <div class="row justify-content-center">
-            <div class="col-4 text-center">
-                <h5>Services</h5>
-                <%= link_to "Learning area", articles_path %><br>
-                <%= link_to "Practice area", practice_path %>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
 <section class="footer-light">
       <div class="container-2">
         <div class="footer-wrapper-two">
@@ -20,8 +5,8 @@
             <div class="text-block-2">Geeky</div>
           </a>
           <div class="footer-block-two">
-            <a href="#" class="footer-link-two">Learning Area</a>
-            <a href="#" class="footer-link-two">Practce Area</a>
+            <%= link_to "Learning area", articles_path, class: "footer-link-two" %>
+            <%= link_to "Practice area", practice_path, class: "footer-link-two" %>
           </div>
         </div>
         <div class="footer-divider-two"></div>
