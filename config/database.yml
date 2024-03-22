@@ -20,8 +20,8 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: postgres
-  password: password
+  # username: postgres
+  password: 9872
 
 development:
   <<: *default
@@ -34,7 +34,7 @@ development:
   #username: geeky
 
   # The password associated with the postgres role (username).
-  password: password
+  # password: password
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -60,8 +60,8 @@ development:
 test:
   <<: *default
   database: geeky01_test
-  username: postgres
-  password: password
+  # username: postgres
+  # password: password
   host: localhost
   port: 5432
 
