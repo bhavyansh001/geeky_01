@@ -1,14 +1,14 @@
 <% if !@avg_time_taken %>
-  <h4>Play a game to get your stats</h4>
+ <div class="container mt-5 text-center">
+    <h4>Play a game to get your stats</h4>
+ </div>
 <% else %>
-  <%= render 'dropdown', subject: "All_questions", query: @all_questions %>
-  <%= render 'dropdown', subject: "Additions", query: @addition_questions %>
-  <%= render 'dropdown', subject: "Subtractions", query: @subtraction_questions %>
-  <%= render 'dropdown', subject: "Multiplications", query: @multiplication_questions %>
-  <%= render 'dropdown', subject: "Divisions", query: @division_questions %><br>
-  <h5>Average time: <%= @avg_time_taken %> seconds</h5>
-  <h5>Best time: <%= @best_time_taken %> seconds</h5>
-  <h5>Accuracy: <%= @accuracy %> %</h5>
-  <hr>
-<% end %><br>
-  <%= link_to "Edit your personal details", edit_user_registration_path, class: "btn btn-primary" %><br><br>
+            <%= render 'dropdown', subject: "AllQuestions", query: @all_questions %>
+            <%= render 'dropdown', subject: "Additions", query: @addition_questions %>
+            <%= render 'dropdown', subject: "Subtractions", query: @subtraction_questions %>
+             <%= render 'dropdown', subject: "Multiplications", query: @multiplication_questions %>
+            <%= render 'dropdown', subject: "Divisions", query: @division_questions %>
+<% end %>
+<div class="container text-center mt-4 mb-4"> <!-- Center the button -->
+  <%= link_to "Edit your personal details", edit_user_registration_path, class: "btn btn-primary" %>
+</div>

@@ -1,6 +1,13 @@
-<h1>Welcome to the practice area</h1>
-<p>You can test your skills here!</p><br>
-<h3>Choose your preferred mode:</h3>
-<%= link_to 'Level Up', level_up_path %><br>
-<%= link_to 'Bro vs Bro', bro_vs_bro_path %><br>
-<%= link_to 'Bro vs Pro', bro_vs_pro_path %><br>
+<div class="container mt-5">
+  <h1 class="text-center mb-4">Welcome to the Practice Area</h1>
+  <p class="text-center">You can test your skills here!</p>
+  <h3 class="text-center mb-4">Choose your preferred mode:</h3>
+  <div class="row justify-content-center btn-container"> <!-- Added btn-container class -->
+    <div class="col-md-4 mb-4 text-center">
+      <%= link_to 'Level Up', level_up_path, class: "btn btn-primary" %>
+    </div>
+    <div class="col-md-4 mb-4 text-center">
+      <%= link_to 'Bro vs Bro', bro_vs_bro_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>

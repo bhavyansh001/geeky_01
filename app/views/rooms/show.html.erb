@@ -1,16 +1,21 @@
-<h3><%= @room.name %></h3>
-<% if current_user == @creator %>
-  <p>Share this link with your friend:</p>
-  <p><%= room_url(@room) %></p>
-<% end %>
-Created by: <%= @creator.username %>
+<div class="container mt-5">
+ <div class="text-center">
+    <h1><%= @room.name %></h1>
+    <% if current_user == @creator %>
+      <p>Share this link with your friend:
+      <input type="text" value="<%= room_url(@room) %>" id="room-url" readonly>
+      <button id="copy-btn" class="btn btn-primary">Copy URL</button></p>
+    <% end %>
+    <p>Created by: <%= @creator.username %></p>
 
-<h3>Welcome</h3>
-<p>You have joined the room with id: <%= @room_id %></p>
-<hr>
-<h3>Users in the room:</h3>
-<%= turbo_stream_from @room, :user %>
-<div id="room">
-  <%= render @users %>
+    <h3>Welcome</h3>
+    <p>You have joined the room with id: <%= @room_id %></p>
+    <hr>
+    <h3>Users in the room:</h3>
+    <%= turbo_stream_from @room, :user %>
+    <div id="room">
+      <%= render @users %>
+    </div>
+    <%= link_to "Begin playing", room_bro_session_index_path(@room), class: "btn btn-primary mt-3" %>
+ </div>
 </div>
-<%= link_to "Begin playing", room_bro_session_index_path(@room), class: "btn btn-primary" %>

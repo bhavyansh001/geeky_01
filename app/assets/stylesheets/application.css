@@ -38,3 +38,213 @@
 #countdown_btn:hover {
     cursor: inherit;
 }
+
+
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   }
+   
+   .card {
+    transition: transform 0.3s ease-in-out;
+   }
+   
+   .card:hover {
+    transform: scale(1.05);
+   }
+
+   
+
+.about-section {
+    padding-top: 20px;
+    padding-bottom: 20px;
+   }
+   
+   .about-section h1, .about-section h2 {
+    color: #333;
+   }
+   
+   .about-section p {
+    font-size: 1.1em;
+    line-height: 1.6;
+   }
+
+   @media (min-width: 992px) {
+    .mydiv12 {
+        padding: 5px 20%;
+    }
+}
+
+  /* Custom CSS to decrease margin between buttons */
+  .btn-container .col-md-4 {
+    margin-bottom: 20px !important;
+    margin-right: 10px !important; /* Adjust the margin as needed */
+    margin-left: 10px !important; /* Adjust the margin as needed */
+  }
+
+  /* Adjusting column width to accommodate buttons */
+  @media (min-width: 992px) {
+    .btn-container .col-md-4 {
+      flex-basis: calc(10% - 2px) !important; /* Adjusted to accommodate minimum distance between buttons */
+    }
+  }
+
+  /* Additional custom styles */
+  .btn-container .col-md-4:last-child {
+    margin-right: 0 !important; /* Remove margin from the last column */
+  }
+
+
+
+/* Custom CSS for Level Up Mode */
+.level-up-mode {
+    padding-top: 20px;
+    padding-bottom: 20px;
+   }
+   
+   .level-up-mode h1 {
+    color: #333;
+   }
+   
+   .level-up-mode p {
+    font-size: 1.1em;
+    line-height: 1.6;
+   }
+   
+   .level-up-mode .btn {
+    margin-bottom: 10px;
+   }
+
+  
+/* Adjust the positioning and visibility of the timer button */
+.timer {
+    position: absolute;
+    top: 50%; /* Center the button vertically */
+    left: 50%; /* Center the button horizontally */
+    transform: translate(-50%, -50%); /* Adjust the button's position to be centered */
+    display: none; /* Hide the button by default */
+   }
+   
+   /* Show the timer button and adjust its position on larger screens */
+   @media (min-width: 768px) {
+    .timer {
+       display: block;
+       top: 20%; /* Adjust the position to avoid covering the title */
+       left: 50%;
+       transform: translate(-50%, -20%);
+    }
+   }
+
+.title-container {
+    padding-top: 50px; /* Adjust the padding as needed */
+   }
+
+   
+
+/* Custom CSS for Time Up Page */
+.time-up-page {
+    padding-top: 20px;
+    padding-bottom: 20px;
+   }
+   
+   .time-up-page h1 {
+    color: #333;
+   }
+   
+   .time-up-page p {
+    font-size: 1.1em;
+    line-height: 1.6;
+   }
+   
+   .time-up-page .btn {
+    margin-bottom: 10px;
+   }
+
+/* Add side margins to the spaced buttons */
+.btn-spaced {
+    margin-right: 10px; /* Adjust the margin as needed */
+    margin-left: 10px; /* Adjust the margin as needed */
+   }
+   
+   /* Ensure the last button doesn't have a right margin */
+   .d-flex .btn-spaced:last-child {
+    margin-right: 0;
+   }
+
+   
+
+/* Custom CSS for Stats Section */
+.stats-section {
+    padding-top: 20px;
+    padding-bottom: 20px;
+   }
+   
+   .stats-section h4, .stats-section h5 {
+    color: #333;
+   }
+   
+   .stats-section .btn {
+    margin-bottom: 10px;
+   }
+
+
+/* Custom CSS for Bro vs Bro Mode Section */
+.bro-vs-bro-section {
+    padding-top: 20px;
+    padding-bottom: 20px;
+   }
+   
+   .bro-vs-bro-section h1 {
+    color: #333;
+   }
+   
+   .bro-vs-bro-section p {
+    font-size: 1.1em;
+    line-height: 1.6;
+   }
+   
+   .bro-vs-bro-section .btn {
+    margin-top: 20px;
+   }
+
+
+/* Custom CSS for Room Details Section */
+.room-details-section {
+    padding-top: 20px;
+    padding-bottom: 20px;
+   }
+   
+   .room-details-section h3 {
+    color: #333;
+   }
+   
+   .room-details-section p {
+    font-size: 1.1em;
+    line-height: 1.6;
+   }
+   
+   .room-details-section .btn {
+    margin-top: 20px;
+   }
+
+
+/* Custom CSS for Question Submission Form and Dashboard Section */
+.question-form-section, .dashboard-section {
+    padding-top: 20px;
+    padding-bottom: 20px;
+   }
+   
+   .question-form-section h3, .dashboard-section h3 {
+    color: #333;
+   }
+   
+   .question-form-section .btn, .dashboard-section .btn {
+    margin-top: 20px;
+   }
+
+   @media (min-width: 992px) {
+    .question-form {
+       max-width: 600px; /* Adjust this value as needed */
+       margin-left: auto;
+       margin-right: auto;
+    }
+   }

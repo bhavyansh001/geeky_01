@@ -1,25 +1,30 @@
-<h3>Your question: </h3> <h2><%= @expression %></h2>
- <%= form_with url: "/rooms/#{@room.id}/bro_session" do |form| %>
-  <div>
-    <%= form.text_field :expression, value: @expression, type: "hidden" %>
-  </div>
-  
-  <div>
-     <%= form.hidden_field :time_taken, value: Time.now.sec %>
-  </div>
+<div class="container mt-5">
+ <div class="text-center">
+    <h3>Your question: </h3>
+    <h2><%= @expression %></h2>
+    <%= form_with url: "/rooms/#{@room.id}/bro_session", class: "form-group question-form" do |form| %>
+      <div>
+        <%= form.text_field :expression, value: @expression, type: "hidden" %>
+      </div>
+      
+      <div>
+         <%= form.hidden_field :time_taken, value: Time.now.sec %>
+      </div>
 
-  <div>
-     <%= form.hidden_field :room_id, value: @room.id %>
-  </div>
+      <div>
+         <%= form.hidden_field :room_id, value: @room.id %>
+      </div>
 
-  <div>
-  <h3>Enter solution: </h3>
-    <%= form.text_field :solution, autofocus: true %>
-  </div><br>
+      <div>
+      <h3>Enter solution: </h3>
+        <%= form.text_field :solution, autofocus: true, class: "form-control" %>
+      </div><br>
 
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
-<br>
-<%= link_to "Go to dashboard", room_dashboard_path, class: "btn btn-primary" %>
+      <div>
+        <%= form.submit "Submit", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+    <br>
+    <%= link_to "Go to dashboard", room_dashboard_path, class: "btn btn-primary" %>
+ </div>
+</div>

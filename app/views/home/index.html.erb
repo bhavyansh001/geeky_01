@@ -1,2 +1,32 @@
-<h1>Geeky</h1>
-<p>Geeky is a platform to test your mathematical skills. Check more of my work at <a href="https://diversepixel.com/">diversepixel.com</a></p>
+<div class="container mt-5">
+ <h1 class="text-center mb-4">Welcome to Geeky!</h1>
+ <p class="text-center">Geeky is a platform designed to enhance your mathematical skills through competitive modes and educational articles.</p>
+ <% if user_signed_in? %>
+   <div class="row justify-content-center mt-5">
+     <div class="col-md-4">
+       <div class="card">
+         <div class="card-body text-center">
+           <h5 class="card-title">Practice Area</h5>
+           <p class="card-text">Test your skills in various competitive modes.</p>
+           <%= link_to "Go to Practice Area", practice_path, class: "btn btn-primary" %>
+         </div>
+       </div>
+     </div>
+     <div class="col-md-4">
+       <div class="card">
+         <div class="card-body text-center">
+           <h5 class="card-title">Learning Area</h5>
+           <p class="card-text">Learn from articles provided by other users.</p>
+           <%= link_to "Go to Learning Area", articles_path, class: "btn btn-primary" %>
+         </div>
+       </div>
+     </div>
+   </div>
+ <% else %>
+   <div class="text-center mt-5">
+     <p>Please sign in or register to access the full features of Geeky.</p>
+     <%= link_to "Login as Guest", user_session_path(guest: true),
+       data: {turbo_method: :post}, class: "btn btn-secondary" %>
+   </div>
+ <% end %>
+</div>

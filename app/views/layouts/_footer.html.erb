@@ -1,12 +1,16 @@
-<div class="footer">
+<div class="mt-5">
+    <div class="footer">
     <div class="container py-4">
         <h3 class= "text-center">Geeky</h3><hr>
         <div class="row justify-content-center">
+            <% if user_signed_in? %>
             <div class="col-4 text-center">
                 <h5>Services</h5>
                 <%= link_to "Learning area", articles_path %><br>
                 <%= link_to "Practice area", practice_path %>
             </div>
+            <% end %>
         </div>
     </div>
+</div>
 </div>
