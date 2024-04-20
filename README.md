@@ -30,7 +30,7 @@ To set up Geeky locally, follow these steps:
 
 ## About
 
-Geeky is a private project developed solely by Bhavyansh001 from DiversePixel. As such, there are no contributions, licenses, or credits associated with it.
+Geeky is a private project developed solely by Bhavyansh001. As such, there are no contributions, licenses, or credits associated with it.
 
-For more information, contact Bhavyansh001 at [your email address].
+For more information, contact Bhavyansh001 at bhavyansh001@gmail.com.
 
