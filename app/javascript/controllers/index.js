@@ -6,20 +6,22 @@ import { application } from "controllers/application"
 import { eagerLoadControllersFrom } from "@hotwired/stimulus-loading"
 eagerLoadControllersFrom("controllers", application)
 
-const copyBtn = document.getElementById('copy-btn');
-const roomUrlInput = document.getElementById('room-url');
-
-copyBtn.addEventListener('click', function() {
-  roomUrlInput.select();
-  roomUrlInput.setSelectionRange(0, 99999); // For mobile devices
-  document.execCommand('copy');
-  // Change the button text to "Copied"
-  copyBtn.textContent = 'Copied';
-  // Optionally, revert the button text after a few seconds
-  setTimeout(function() {
-    copyBtn.textContent = 'Copy URL';
-  }, 2000); // 2000 milliseconds = 2 seconds
-});
+document.addEventListener('turbo:load', function() {
+  const copyBtn = document.getElementById('copy-btn');
+  const roomUrlInput = document.getElementById('room-url');
+ 
+  if (copyBtn && roomUrlInput) {
+     copyBtn.addEventListener('click', function() {
+       roomUrlInput.select();
+       roomUrlInput.setSelectionRange(0, 99999);
+       document.execCommand('copy');
+       copyBtn.textContent = 'Copied';
+       setTimeout(function() {
+         copyBtn.textContent = 'Copy URL';
+       }, 2000);
+     });
+  }
+ });
 
 // Lazy load controllers as they appear in the DOM (remember not to preload controllers in import map!)
 // import { lazyLoadControllersFrom } from "@hotwired/stimulus-loading"
