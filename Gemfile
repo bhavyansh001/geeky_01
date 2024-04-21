@@ -20,12 +20,12 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 gem "image_processing", "~> 1.2"
 gem "devise", "~> 4.9.2"
+gem 'faker'
 group :development, :test do
   gem "debug", platforms: %i[ mri windows mingw x64_mingw ]
   gem 'rspec-rails', '~> 6.1.0'
   gem 'shoulda-matchers', '~> 6.0'
   gem 'factory_bot_rails'
-  gem 'faker'
   gem 'rails-controller-testing'
 end
 
