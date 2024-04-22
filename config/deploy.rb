@@ -6,7 +6,7 @@ set :repo_url, "git@github.com:bhavyansh001/geeky_01.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
-set :branch, 'main'
+set :branch, 'deploy'
 
 set :deploy_to, "/home/deploy/#{fetch :application}"
 
