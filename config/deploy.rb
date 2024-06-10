@@ -2,11 +2,11 @@
 lock "~> 3.18.1"
 
 set :application, "geeky"
-set :repo_url, "git@github.com:bhavyansh001/geeky_01.git"
+set :repo_url, "https://github.com/bhavyansh001/geeky_01.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
-set :branch, 'deploy'
+set :branch, 'deploy_aws'
 
 set :deploy_to, "/home/deploy/#{fetch :application}"
 
