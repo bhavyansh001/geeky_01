@@ -44,7 +44,7 @@ server '100.27.190.133', user: 'deploy', roles: %w{app db web}
  set :ssh_options, {
    keys: %w(../ec2-key.pem),
    forward_agent: false,
-   auth_methods: %w(password)
+   auth_methods: %w(publickey)
  }
 #
 # The server-based syntax can be used to override options:
