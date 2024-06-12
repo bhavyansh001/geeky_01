@@ -42,7 +42,7 @@ server '54.211.204.103', user: 'deploy', roles: %w{app db web}
 # Global options
 # --------------
  set :ssh_options, {
-   keys: %w(../ec2-key.pem),
+   keys: %w(../geeky-prod-cli.pem),
    forward_agent: false,
    auth_methods: %w(publickey)
  }
