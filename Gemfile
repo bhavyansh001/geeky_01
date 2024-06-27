@@ -22,7 +22,6 @@ gem "image_processing", "~> 1.2"
 gem "devise", "~> 4.9.2"
 gem 'faker'
 gem 'prometheus-client'
-gem 'prometheus_exporter'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows mingw x64_mingw ]
