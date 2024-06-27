@@ -8,7 +8,7 @@
 # server "db.example.com", user: "deploy", roles: %w{db}
 
 
-server '3.80.103.34', user: 'deploy', roles: %w{app db web}
+server '50.19.21.104', user: 'deploy', roles: %w{app db web}
 # role-based syntax
 # ==================
 
@@ -42,7 +42,7 @@ server '3.80.103.34', user: 'deploy', roles: %w{app db web}
 # Global options
 # --------------
  set :ssh_options, {
-   keys: %w(../tfprod),
+   keys: %w(../monitoring-key.pem),
    forward_agent: false,
    auth_methods: %w(publickey)
  }
