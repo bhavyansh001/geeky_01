@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount PrometheusExporter::Web::Metrics, at: '/metrics'
   root 'home#index'
   get 'home/about'
   devise_for :users, controllers: { sessions: 'users/sessions'}
