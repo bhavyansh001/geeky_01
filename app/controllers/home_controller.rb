@@ -2,8 +2,8 @@ require 'prometheus/client'
 
 class HomeController < ApplicationController
   def index
-    @counter = Prometheus::Client.registry.counter(name: 'home_controller_index_requests_total', help: 'Total number of requests to the home controller index action')
-    @counter.increment
+    @home_controller_index_requests_total = Prometheus::Client.registry.counter(:home_controller_index_requests_total, docstring: 'Total number of requests to the home controller index action')
+    @home_controller_index_requests_total.increment
   end
 
   def about
