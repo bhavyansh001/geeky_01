@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/metrics', to: 'metrics#index'
   root 'home#index'
   get 'home/about'
   devise_for :users, controllers: { sessions: 'users/sessions'}
