@@ -330,7 +330,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   pg (~> 1.1)
-  prometheus-client
+  prometheus-client (~> 4.2, >= 4.2.2)
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.2)
   rails-controller-testing
