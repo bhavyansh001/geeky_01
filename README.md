@@ -28,9 +28,21 @@ To set up Geeky locally, follow these steps:
 1. Run `rails server` to start the application locally.
 2. Access the application in your web browser at `http://localhost:3000`.
 
-## About
+## Branches Explained
 
-Geeky is a private project developed solely by Bhavyansh001. As such, there are no contributions, licenses, or credits associated with it.
+### deploy_aws_cli
+Used to deploy to AWS using AWS CLI and user data scripts. This branch contains configurations and scripts specific to automating deployments via AWS CLI commands.
 
-For more information, contact Bhavyansh001 at bhavyansh001@gmail.com.
+### deploy_tf
+For deploying with Terraform and Ansible. This branch focuses on infrastructure as code (IaC) practices, utilizing Terraform for provisioning resources and Ansible for configuration management.
 
+### monitoring
+For setting up Prometheus and Grafana. This branch includes configurations and dashboards for monitoring the application's performance and health metrics, leveraging Prometheus for data collection and Grafana for visualization.
+
+## Contributing
+
+Currently, Geeky is a private project developed solely by Bhavyansh. However, if you're interested in contributing, please reach out to Bhavyansh001 at bhavyansh001@gmail.com.
+
+## Contact
+
+For more information, support, or feedback, contact Bhavyansh at bhavyansh001@gmail.com.
