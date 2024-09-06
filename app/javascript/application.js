@@ -3,6 +3,7 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "trix"
 import "@rails/actiontext"
+import "./channels"
 
 document.addEventListener('turbo:load', function() {
     const copyBtn = document.getElementById('copy-btn');
@@ -27,5 +28,3 @@ import { application } from "controllers/application"
 // Eager load all controllers defined in the import map under controllers/**/*_controller
 import { eagerLoadControllersFrom } from "@hotwired/stimulus-loading"
 eagerLoadControllersFrom("controllers", application)
-
-import "./channels/index"
