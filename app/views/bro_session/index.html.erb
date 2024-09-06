@@ -25,7 +25,7 @@
       </div>
     <% end %>
     <br>
-    <div data-controller="room" data-room-room-id-value="<%= @room.id %>">
+    <div data-controller="room" data-room-room-id-value="<%= @room.id %>" data-room-active-value="true">
       <%= link_to "Go to dashboard", room_dashboard_path, class: "btn btn-primary", data: { action: "room#redirectToDashboard" } %>
     </div>
 

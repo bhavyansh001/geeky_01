@@ -2,9 +2,24 @@ import { Controller } from "@hotwired/stimulus"
 import consumer from "../channels/consumer"
 
 export default class extends Controller {
-  static values = { roomId: String }
+  static values = { 
+    roomId: String,
+    active: Boolean
+  }
 
   connect() {
+    if (this.activeValue) {
+      this.initializeChannel()
+    }
+  }
+
+  disconnect() {
+    if (this.channel) {
+      this.channel.unsubscribe()
+    }
+  }
+
+  initializeChannel() {
     this.channel = consumer.subscriptions.create(
       { channel: "RoomChannel", room_id: this.roomIdValue },
       {
@@ -15,14 +30,12 @@ export default class extends Controller {
 
   cableReceived(data) {
     if (data.type === 'redirect') {
-      window.location.href = data.url
+      Turbo.visit(data.url, { action: "replace" })
     }
   }
 
   redirectToDashboard(event) {
     event.preventDefault()
-    console.info("hello, i'm working")
-    const url = event.currentTarget.href
-    this.channel.perform('redirect_to_dashboard', { url: url })
+    this.channel.perform('redirect_to_dashboard', { url: event.currentTarget.href })
   }
 }
